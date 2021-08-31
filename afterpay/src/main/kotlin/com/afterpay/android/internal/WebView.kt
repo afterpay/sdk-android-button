@@ -4,5 +4,5 @@ import android.webkit.WebView
 import com.afterpay.android.BuildConfig
 
 internal fun WebView.setAfterpayUserAgentString() = apply {
-    settings.userAgentString += " Afterpay-Android-SDK/${BuildConfig.AfterpayLibraryVersion}"
+    settings.userAgentString += " Afterpay-Android-SDK-button/${BuildConfig.AfterpayLibraryVersion}"
 }

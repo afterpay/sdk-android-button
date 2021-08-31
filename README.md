@@ -34,11 +34,11 @@ The Afterpay Android SDK makes it quick and easy to provide an excellent payment
 
 ### Configuration
 
-Add `afterpay-android` to your `build.gradle` dependencies.
+Add `afterpay-android-button` to your `build.gradle` dependencies.
 
 ```gradle
 dependencies {
-    implementation 'com.afterpay:afterpay-android:2.0.4'
+    implementation 'com.afterpay:afterpay-android-button:2.0.4'
 }
 ```
 
