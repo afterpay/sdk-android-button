@@ -30,7 +30,7 @@ The Afterpay Android SDK makes it quick and easy to provide an excellent payment
 
 ### Requirements
 
-- Android 5.0 (API level 21) and above
+- Android 7.0 (API level 24) and above
 
 ### Configuration
 
@@ -38,7 +38,7 @@ Add `afterpay-android-button` to your `build.gradle` dependencies.
 
 ```gradle
 dependencies {
-    implementation 'com.afterpay:afterpay-android-button:2.0.4'
+    implementation 'com.afterpay:afterpay-android-button:3.1.0'
 }
 ```
 
@@ -121,7 +121,7 @@ class ExampleActivity: Activity {
 
 ### Launching the Checkout (v2)
 
-Launch the Afterpay checkout v2 flow by starting the intent provided by the SDK for the given options. 
+Launch the Afterpay checkout v2 flow by starting the intent provided by the SDK for the given options.
 
 > When creating a checkout token, `popupOriginUrl` must be set to `https://static.afterpay.com`. The SDK’s example merchant server sets the parameter [here](https://github.com/afterpay/sdk-example-server/blob/master/src/routes/checkout.ts#L28). See the [API reference][express-checkout] for more details! Failing to do so will cause undefined behavior.
 
@@ -148,7 +148,10 @@ class ExampleActivity: Activity {
                 TODO("Use the address to form shipping options and pass to completion")
             }
 
-            override fun shippingOptionDidChange(shippingOption: ShippingOption) {
+            override fun shippingOptionDidChange(
+                shippingOption: ShippingOption,
+                onProvideShippingOptionUpdate: (ShippingOptionUpdateResult?) -> Unit
+            ) {
                 TODO("Optionally update your application model with the selected shipping option")
             }
         })
@@ -263,7 +266,7 @@ class ReceiptFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         // ...
-        
+
         view.findViewById<AfterpayWidgetView>(R.id.afterpay_widget)
             .init(token, ::onWidgetExternalLink, ::onWidgetUpdate, ::onWidgetError)
     }
@@ -379,6 +382,28 @@ When no payment amount has been set or the merchant account configuration has no
 ![Price breakdown no merchant account configuration][breakdown-no-configuration]
 
 The **Info** link at the end of the component will display a window containing more information about Afterpay for the user.
+
+#### Configuring the Price Breakdown
+
+##### Intro Text
+Setting `introText` is optional, will default to `OR` and must be of type `AfterpayIntroText`.
+
+Can be any of `OR`, `OR_TITLE`, `MAKE`, `MAKE_TITLE`, `PAY`, `PAY_TITLE`, `IN`, `IN_TITLE`, `PAY_IN`, `PAY_IN_TITLE` or `EMPTY` (no intro text).
+Intro text will be rendered lowercase unless using an option suffixed with `_TITLE` in which case title case will be rendered.
+
+##### Optional Words
+Setting `showInterestFreeText` and / or `showWithText` is optional and is of type `Boolean`.
+
+Both default to true. This will show the text `pay in 4 interest-free payents of $#.##`.
+Setting `showInterestFreeText` to false will remove "interest-free" from the sentence.
+Setting `showWithText` to false will remove the word "with" from the sentence.
+
+```kotlin
+val afterpayBreakdown = view.findViewById<AfterpayPriceBreakdown>(R.id.afterpayPriceBreakdown)
+afterpayBreakdown.introText = AfterpayIntroText.MAKE_TITLE
+```
+
+Given the above, the price breakdown text will be rendered `Make 4 interest-free payments of $##.##`
 
 ## Security
 
