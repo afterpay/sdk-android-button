@@ -9,6 +9,16 @@ Documentation for usage can be found [here][docs], including the [getting starte
 
 ## V3 Documentation
 
+### Installation
+
+Add `afterpay-android-button` to your `build.gradle` dependencies.
+
+```gradle
+dependencies {
+    implementation 'com.afterpay:afterpay-android-button:4.0.2'
+}
+```
+
 ### Launching the Checkout
 
 Launch the Afterpay checkout v3 flow by starting the intent provided by the SDK for the given options.
