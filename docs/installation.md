@@ -12,18 +12,18 @@ nav_order: 2
 
 ## Configuration
 
-Add `afterpay-android` to your `build.gradle` dependencies.
+Add `afterpay-android-button` to your `build.gradle` dependencies.
 
 ``` gradle
 dependencies {
-    implementation 'com.afterpay:afterpay-android:4.3.0'
+    implementation 'com.afterpay:afterpay-android-button:4.3.0'
 }
 ```
-
+ui
 ## ProGuard
 
 If you are using R8 the shrinking and obfuscation rules are included automatically.
 
 Proguard users will need to manually apply the rules defined in [`consumer-rules.pro`][proguard-rules]{:target="_blank"}.
 
-[proguard-rules]: https://github.com/afterpay/sdk-android/blob/master/afterpay/consumer-rules.pro
+[proguard-rules]: https://github.com/afterpay/sdk-android-button/blob/master/afterpay/consumer-rules.pro
