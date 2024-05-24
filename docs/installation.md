@@ -19,7 +19,7 @@ Add `afterpay-android-button` to your `build.gradle` dependencies.
 
 ``` gradle
 dependencies {
-    implementation 'com.afterpay:afterpay-android-button:4.4.0'
+    implementation 'com.afterpay:afterpay-android-button:4.5.0'
 }
 ```
 ui
