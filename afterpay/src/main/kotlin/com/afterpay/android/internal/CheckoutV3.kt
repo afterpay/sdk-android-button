@@ -28,7 +28,6 @@ internal object CheckoutV3 {
         val singleUseCardToken: String,
     )
 
-
     @Serializable
     data class Request(
         val shopDirectoryId: String,
