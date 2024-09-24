@@ -1,4 +1,9 @@
-# Afterpay Android SDK
+# [Deprecated] Afterpay Android SDK
+
+
+_This repo is deprecated. All "button" related improvements have been merged into the [Android SDK repo](https://github.com/afterpay/sdk-android). Migration is as simple as updating Maven artifact to [latest release](https://github.com/afterpay/sdk-android/releases). The `afterpay-android-button` Maven artifact will no longer be updated or supported._
+
+--------
 
 ![Build and Test][badge-ci] [![ktlint][badge-ktlint]][ktlint]
 
